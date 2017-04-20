@@ -1,14 +1,15 @@
 let fs = require('fs')
 var request = require('request')
-let sharp = require('sharp')
 let imageIds = require('./ids')
 
 let baseUrl = 'https://www.gstatic.com/prettyearth/assets/data/'
 
 let resize = false
 let index = process.argv.findIndex(val => val === '-resize')
+let sharp
 
 if (index !== -1) {
+	sharp = require('sharp')
 	resize = true
 }
 
